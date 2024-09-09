@@ -158,10 +158,9 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
         return false;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public E[] toArray() {
-        return (E[]) Arrays.copyOf(array, size);
+    public Object[] toArray() {
+        return Arrays.copyOf(array, size);
     }
 
     /**
@@ -174,18 +173,27 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
 
     /**
      * Sorts this list according to the order induced by the specified {@link Comparator}.
-     * If the specified comparator is {@code null} then elements' type {@code E} must
-     * implement the {@link Comparable} interface and the list is sorted by natural ordering.
+     * If the specified comparator is {@code null} then the list is sorted by natural order.
      *
      * @param comparator the Comparator used to compare list elements.
      *                   A null value indicates that the elements' natural ordering should be used.
      * @throws ClassCastException if the specified {@code comparator} is null and
-     *                            the elements' type {@code E} does not implement {@link Comparable} interface.
+     *                            the elements' type does not implement {@link Comparable} interface.
      */
-    @SuppressWarnings("unchecked")
     @Override
     public void sort(Comparator<? super E> comparator) {
-        Arrays.sort((E[]) array, 0, size, comparator);
+        MyListQuickSorter.quickSort(this, comparator);
+    }
+
+    /**
+     * Sorts list by natural ordering. List elements' type must
+     * implement the {@link Comparable} interface.
+     *
+     *
+     * @throws ClassCastException if the elements' type does not implement {@link Comparable} interface.
+     */
+    public void sort() {
+        MyListQuickSorter.quickSort(this, null);
     }
 
     /**
@@ -227,7 +235,7 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
         for (int i = 0; i < size; i++) {
             joiner.add(array[i].toString());
         }
-        return joiner.toString()/* + " size:" + size + " capacity:" + array.length*/;
+        return joiner.toString();
     }
 
     private int getIndexOf(E element) {

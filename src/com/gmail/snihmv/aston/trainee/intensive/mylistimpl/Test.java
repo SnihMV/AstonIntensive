@@ -13,14 +13,16 @@ public class Test {
         users.add(new User("Julia", 37));
         users.add(new User("Boris", 42));
         System.out.println(users);
-//        MyListQuickSorter.quickSort(users);
+        MyListQuickSorter.quickSort(users);
         System.out.println(users);
         MyListQuickSorter.quickSort(users, Comparator.comparing(User::age).thenComparing(User::name));
         System.out.println(users);
-        users.sort(null);
+        users.sort(Comparator.reverseOrder());
         for (User user : users) {
             System.out.println(user);
         }
+        users.sort();
+        System.out.println(users);
 
     }
 
