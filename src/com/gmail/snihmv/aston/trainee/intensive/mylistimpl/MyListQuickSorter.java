@@ -3,7 +3,7 @@ package com.gmail.snihmv.aston.trainee.intensive.mylistimpl;
 import java.util.Comparator;
 /**
  * Class consists of static methods that provides to sort {@link MyList} collections
- * by the <i>Quic-Sort</i> algorithm
+ * by the <i>Quick-Sort</i> algorithm
  * */
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class MyListQuickSorter {
