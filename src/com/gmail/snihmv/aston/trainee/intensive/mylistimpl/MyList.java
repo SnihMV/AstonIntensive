@@ -20,9 +20,11 @@ public interface MyList<E> extends Iterable<E> {
 
     boolean delete(E element);
 
-    E[] toArray();
+    Object[] toArray();
 
     void clear();
+
+    void sort();
 
     void sort(Comparator<? super E> comparator);
 }
