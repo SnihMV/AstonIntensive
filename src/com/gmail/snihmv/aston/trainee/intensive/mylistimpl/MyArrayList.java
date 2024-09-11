@@ -189,7 +189,6 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
      * Sorts list by natural ordering. List elements' type must
      * implement the {@link Comparable} interface.
      *
-     *
      * @throws ClassCastException if the elements' type does not implement {@link Comparable} interface.
      */
     public void sort() {
@@ -233,7 +232,7 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
     public String toString() {
         StringJoiner joiner = new StringJoiner(",", "[", "]");
         for (int i = 0; i < size; i++) {
-            joiner.add(array[i].toString());
+            joiner.add(array[i] != null ? array[i].toString() : "null");
         }
         return joiner.toString();
     }

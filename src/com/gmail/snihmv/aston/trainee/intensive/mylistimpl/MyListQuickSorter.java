@@ -16,7 +16,7 @@ public class MyListQuickSorter {
      * @param  <E> the class of the elements in the list.
      */
     public static <E extends Comparable<? super E>> void quickSort(MyList<E> list) {
-        quickSort(list, null);
+        quickSort(list, Comparator.naturalOrder());
     }
 
     /**
