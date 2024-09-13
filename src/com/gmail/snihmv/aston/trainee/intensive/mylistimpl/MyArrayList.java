@@ -63,6 +63,16 @@ public class MyArrayList<E> implements MyList<E>, RandomAccess {
     public boolean isEmpty() {
         return size == 0;
     }
+/**
+ * Returns {@code true} if this list contains at least one of the specified element.
+ *
+ * @param element element whose presence in this list is to be tested
+ * @return {@code true} if this list contains the specified element
+ * */
+    @Override
+    public boolean contains(E element) {
+        return getIndexOf(element) >= 0;
+    }
 
     /**
      * Adds the specified element to the end of this list.

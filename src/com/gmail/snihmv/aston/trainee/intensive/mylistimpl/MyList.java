@@ -8,6 +8,8 @@ public interface MyList<E> extends Iterable<E> {
 
     boolean isEmpty();
 
+    boolean contains(E element);
+
     void add(E element);
 
     void set(int index, E element);
